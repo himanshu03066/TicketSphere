@@ -18,7 +18,13 @@ const syncUserCreation = inngest.createFunction(
       image: image_url,
     }
 
-    await User.create(userData);
+    try {
+  await User.create(userData);
+  console.log("User created:", userData.email);
+} catch (err) {
+  console.error("Failed to create user:", err);
+}
+
   }
 )
 
