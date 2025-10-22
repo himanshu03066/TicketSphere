@@ -87,3 +87,6 @@ res.json({ success: true, message: 'Show Added successfully.' })
   
   }
 }
+
+
+//api to get all show from the db
