@@ -8,7 +8,7 @@ import { inngest, functions } from "./inngest/index.js"
 import showRouter from './routes/showRoutes.js';
 
 
-const port=3000;
+const port=3000 || process.env.PORT;
 
 dotenv.config();
 await connectDB();
