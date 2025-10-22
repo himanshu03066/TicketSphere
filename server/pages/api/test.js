@@ -1,4 +1,3 @@
-// pages/api/test.js
 import fetch from "node-fetch";
 
 export default async function handler(req, res) {
@@ -11,7 +10,6 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true, data });
   } catch (err) {
-    console.error("TMDB ERR:", err);
     return res.status(500).json({ success: false, error: err.message });
   }
 }
