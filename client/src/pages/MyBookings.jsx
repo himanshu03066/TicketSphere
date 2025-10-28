@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { dummyBookingData } from '../assets/assets';
 import Loading from '../components/Loading';
 import { dateFormat } from '../lib/dateFormat';
 import timeFormat from '../lib/timeFormat';
@@ -21,7 +20,7 @@ const{axios,getToken,user,image_base_url}=useAppContext();
       Authorization: `Bearer ${await getToken()}`
     }
   });
-console.log("data",data)
+
   if (data.success) {
     setBookings(data.bookings)
   }

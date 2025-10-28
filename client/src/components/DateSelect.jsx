@@ -10,6 +10,8 @@ const DateSelect = ({ dateTime, id }) => {
 const [selected, setSelected] = useState(null)
 
 const onBookHandler = () => {
+  console.log("selected: ", selected, "id: ", id);
+
   if (!selected) {
     return toast('Please select a date')
   }
