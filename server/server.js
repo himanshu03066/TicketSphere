@@ -9,12 +9,15 @@ import showRouter from './routes/showRoutes.js';
 import bookingRouter from './routes/bookingRoutes.js';
 import adminRouter from './routes/adminRoutes.js';
 import userRouter from './routes/userRoutes.js';
+import { stripeWebhooks } from './controller/stripeWebhooks.js';
 
 dotenv.config();
 const port=3000 ;
 const app=express();
 
 await connectDB();
+
+app.use("/api/stripe",express.raw({type:'application/json'}),stripeWebhooks);
 app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware());
