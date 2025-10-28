@@ -1,7 +1,5 @@
 
-
 import React from 'react'
-
 const Loading = ({ message = "Loading movie details..." }) => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen gap-4 px-4">

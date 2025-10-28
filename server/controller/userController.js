@@ -9,9 +9,11 @@ export const getUserBookings=async(req,res)=>{
 
     try{
         const user=req.auth().userId;
+        console.log("userid",user)
         const bookings=await Booking.find({user}).populate({   path:'show',     populate:{path:'movie'}
         }).sort({createdAt:-1});
-
+        
+console.log("bookings =",bookings);
         res.json({success:true,bookings});
     }catch(error){
 console.log(error.message);

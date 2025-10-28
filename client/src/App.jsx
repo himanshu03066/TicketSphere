@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Route, Routes, useLocation } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import MovieDetails from "./pages/MovieDetails";
@@ -9,7 +7,6 @@ import SeatLayout from "./pages/SeatLayout";
 import MyBookings from "./pages/MyBookings";
 import Favourite from "./pages/Favourite";
 import Navbar from "./components/Navbar";
-
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/admin/Dashboard";

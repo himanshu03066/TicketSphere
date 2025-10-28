@@ -21,7 +21,7 @@ const checkSeatsAvailability = async (showId, selectedSeats) => {
 export const createBooking = async (req, res) => {
   try {
      const {userId }= req.auth();
-    
+   
     const { showId, selectedSeats } = req.body;
     const { origin } = req.headers;
 
@@ -68,6 +68,9 @@ export const getOccupiedSeats = async (req, res) => {
     const { showId } = req.params;
     const showData = await Show.findById(showId)
 
+ if (!showData) {
+      return res.json({ success: false, message: "Show not found" });
+    }
     const occupiedSeats = Object.keys(showData.occupiedSeats)
 
     res.json({ success: true, occupiedSeats})

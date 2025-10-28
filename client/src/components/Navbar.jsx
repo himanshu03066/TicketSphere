@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { MenuIcon, SearchIcon, TicketPlus, XIcon } from "lucide-react";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { useAppContext } from "../context/AppContext";
 
 const Navbar = () => {
+  const{favoriteMovies}=useAppContext();
   const [isOpen, setIsOpen] = useState(false);
   const {user}=useUser();
   const {openSignIn}=useClerk();
@@ -18,14 +20,11 @@ const Navbar = () => {
       <Link to="/" className="max-md:flex-1">
         <img src={assets.logo} alt="" className="w-36 h-auto" />
       </Link>
-
-      <div
-        className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium
+      <div className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium
 max-md:text-lg z-50 flex flex-col md:flex-row  items-center max-md:justify-center
 gap-8 min-md:px-8 py-3 max-md:h-screen min-md:rounded-full backdrop-blur bg-black/70
 md:bg-white/10 md:border border-gray-300/20 overflow-hidden transition-[width] duration-300 
-${isOpen? 'max-md:w-full' :'max-md:w-0'}`}
-      >
+${isOpen? 'max-md:w-full' :'max-md:w-0'}`} >
         <XIcon className="md:hidden absolute top-6 right-6 h-6 w-6 cursor-pointer" 
         onClick={()=>setIsOpen(!isOpen)}/>
 
@@ -33,7 +32,7 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`}
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/movies">Movies </Link>
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/">Theatres </Link>
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/">Releases </Link>
-        <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/favourite">Favourites </Link>
+       { favoriteMovies.length > 0 && <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/favourite">Favourites </Link>}
       </div>
 
       <div className="flex items-center gap-8">
@@ -42,8 +41,7 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`}
         {
           !user?(
   <button onClick={openSignIn} className="px-4 py-1 sm:px-7 sm:py-2  bg-primary hover:bg-primary-dull 
-  transition rounded-full font-medium cursor-pointer"
-        >
+  transition rounded-full font-medium cursor-pointer" >
 
           login
         </button>
@@ -64,56 +62,3 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`}
   );
 };
 export default Navbar;
-
-/**
- 🔹 isOpen / setIsOpen
-
-Ye state hai → mobile navbar khula hai ya band hai.
-
-false = navbar chhupa hua (w-0),
-
-true = navbar dikh raha hai (w-full).
-
-MenuIcon (☰) click → setIsOpen(true) → menu khul jaata hai.
-
-XIcon (×) click → setIsOpen(false) → menu band ho jaata hai.
-
-👉 Matlab mobile navbar toggle karne ke liye banaya hai.
-
-🔹 scrollTo(0,0)
-
-Ye page ko bilkul top-left (upar se) dikhata hai.
-
-Agar tum niche scroll kar chuke ho aur new route pe jaate ho, to bina scrollTo ke page wahi niche se start hoga.
-
-scrollTo(0,0) lagane se page hamesha upar se start hoga.
-
-👉 Matlab naye page pe jaate hi hamesha top se dikhane ke liye lagaya.
- */
-
-/**
- 🔹 Logic kyu setIsOpen(false) lagaya in linkonclickscrollto?
-
-Socho tum mobile screen pe ho 👇
-
-Tum menu (☰) click karke navbar open karte ho.
-
-Us navbar me tum "Movies" par click karte ho.
-
-Ab agar setIsOpen(false) na lagao → to Movies page load ho jaayega, lekin menu abhi bhi khula rahega aur poore screen ko cover karega.
-
-👉 Isliye har link ke click pe setIsOpen(false) lagaya hai, taaki page change hone ke saath mobile menu automatically band ho jaaye.
- */
-
-
-/**
- why onlcik on menuicon?
- Mobile UX me common pattern ye hai:
-
-☰ icon pe click → menu slide out/open hota hai.
-
-User ko menu ke andar close button chahiye (X) → easily menu band kar sake.
-
-Agar sirf ☰ use kare aur setIsOpen(!isOpen) lagaye, to toggle ho sakta hai, lekin UX me X icon separate 
-hota hai taaki user clearly dekhe ki ye menu close karne ka button hai. 
- */
