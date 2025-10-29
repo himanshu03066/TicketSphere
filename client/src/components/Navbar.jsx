@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { MenuIcon, SearchIcon, TicketPlus, XIcon } from "lucide-react";
+import {LayoutDashboard, MenuIcon, SearchIcon, TicketPlus, XIcon } from "lucide-react";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { useAppContext } from "../context/AppContext";
 
@@ -30,8 +30,9 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`} >
 
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/">Home </Link>
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/movies">Movies </Link>
-        <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/">Theatres </Link>
-        <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/">Releases </Link>
+     <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)}} to="/theatres">Theatres</Link>
+<Link onClick={()=>{scrollTo(0,0);setIsOpen(false)}} to="/releases">Releases</Link>
+
        { favoriteMovies.length > 0 && <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/favourite">Favourites </Link>}
       </div>
 
@@ -48,6 +49,8 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`} >
           ) :(
             <UserButton>
               <UserButton.MenuItems>
+                 <UserButton.Action label="Admin Portal"   labelIcon={<LayoutDashboard width={15} />}
+      onClick={() => { navigate('/admin'); window.scrollTo(0, 0); }}/>
                 <UserButton.Action label="My-Bookings" labelIcon=
                 {<TicketPlus width={15}/>} onClick={()=>{navigate('/my-bookings'); window.scrollTo(0, 0);}}/>
               </UserButton.MenuItems>

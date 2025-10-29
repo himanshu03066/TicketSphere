@@ -11,7 +11,8 @@ export const assets = {
     googlePlay,
     appStore,
     screenImage,
-    profile
+    profile,
+    
 }
 
 export const dummyTrailers = [
