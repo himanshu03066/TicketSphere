@@ -1,20 +1,4 @@
-// import React from "react";
 
-// const Releases = () => {
-//   return (
-//     <div className="flex flex-col items-center justify-center h-[80vh] text-center text-gray-300 space-y-4">
-//       <div className="text-4xl font-semibold flex items-center gap-2 animate-pulse">
-//         🚀 Upcoming Releases Coming Soon...
-//       </div>
-//       <p className="text-sm text-gray-500 animate-fade-in">
-//         Exciting new movies are on their way! Stay tuned 🍿
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default Releases;
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Releases = () => {

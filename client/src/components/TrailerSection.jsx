@@ -33,11 +33,7 @@ const TrailersSection = () => {
           }`}
         >
           <ReactPlayer
-            url={currentTrailer.videoUrl}
-            controls={false}
-            width="100%"
-            height="100%"
-          />
+            url={currentTrailer.videoUrl}  controls={false} width="100%" height="100%"/>
         </div>
       </div>
 
