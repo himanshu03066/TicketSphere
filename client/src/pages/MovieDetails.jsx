@@ -54,11 +54,8 @@ try {
   return show ? (
     <div className="px-6 md:px-16 lg:px-40 pt-30 md:pt-50">
       <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-        <img
-          src={image_base_url+show.movie.poster_path}
-          alt=""
-          className="max-w-md:mx-auto rounded-xl h-106 max-w-70 object-cover"
-        />
+        <img src={image_base_url+show.movie.poster_path} alt=""
+          className="max-w-md:mx-auto rounded-xl h-106 max-w-70 object-cover"/>
 
         <div className="relative flex flex-col gap-3">
           <BlurCircle top="-100px" left="-100px" />
@@ -86,7 +83,7 @@ try {
               Watch Trailer
             </button>
 
-            <a href="#dateSelect"
+            <a href='#dateSelect'
               className="px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-md font-medium cursor-pointer active:scale-95" >
               Buy Tickets
             </a>

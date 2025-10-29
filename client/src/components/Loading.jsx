@@ -6,8 +6,6 @@ const Loading = ({ message = "Loading movie details..." }) => {
 
   const{nextUrl}=useParams()
   const navigate=useNavigate();
-console.log("nexturl=",nextUrl);
-
   useEffect(() => {
   if (nextUrl) {
     setTimeout(() => {

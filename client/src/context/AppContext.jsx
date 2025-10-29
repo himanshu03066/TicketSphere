@@ -74,7 +74,7 @@ const fetchFavoriteMovies = async () => {
 const safeGetToken = async () => {
   if (!user) return null;
   try {
-    return await getToken(); // Remove template option
+    return await getToken(); 
   } catch (err) {
     console.warn("Token not ready yet:", err.message);
     return null;

@@ -49,7 +49,7 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`} >
             <UserButton>
               <UserButton.MenuItems>
                 <UserButton.Action label="My-Bookings" labelIcon=
-                {<TicketPlus width={15}/>} onClick={()=>navigate('/my-bookings')}/>
+                {<TicketPlus width={15}/>} onClick={()=>{navigate('/my-bookings'); window.scrollTo(0, 0);}}/>
               </UserButton.MenuItems>
             </UserButton>
           )

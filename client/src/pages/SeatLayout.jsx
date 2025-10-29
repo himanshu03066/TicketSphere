@@ -24,7 +24,6 @@ const groupRows = [
   const[occupiedSeats,setOccupiedSeats]=useState([]);
 const{axios,getToken,user}=useAppContext();
 
-  const navigate = useNavigate()
 
   const getShow = async () => {
 try {
