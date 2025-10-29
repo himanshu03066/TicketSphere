@@ -1,6 +1,7 @@
 import axios from "axios";
 import Movie from "../models/Movie.js";
 import Show from "../models/Show.js";
+import { inngest } from "../inngest/index.js";
 
 
 // api to get now playing movie from tmdb
@@ -79,6 +80,13 @@ showsInput.forEach(show => {
 if (showsToCreate.length > 0) {
   await Show.insertMany(showsToCreate);
 }
+
+
+//trigger inngest event
+await inngest.send({
+  name:"app/show.added",
+  data:{movieTitle:movie.title}
+})
 
 res.json({ success: true, message: 'Show Added successfully.' })
 
