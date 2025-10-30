@@ -17,7 +17,7 @@ const Navbar = () => {
       className="fixed top-0 left-0 z-50 w-full flex items-center justify-between
     px-6 md:px-16 lg:px-36 py-5"
     >
-      <Link to="/" className="max-md:flex-1"  onClick={ scrollTo(0, 0)}>
+      <Link to="/" className="max-md:flex-1"    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
         <img src={assets.logo} alt=""  className="w-42 h-auto max-w-[180px] md:w-48 md:max-w-[200px] lg:w-52 mt-2.5" />
       </Link>
       <div className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium
