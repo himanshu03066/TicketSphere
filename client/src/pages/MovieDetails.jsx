@@ -122,21 +122,27 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      <p className="text-lg font-medium mt-20">Your Favorite Cast</p>
-      <div className="overflow-x-auto no-scrollbar mt-8 pb-4">
-        <div className="flex items-center gap-6 w-max px-4">
-          {show.movie.casts.slice(0, 12).map((cast, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <img
-                src={image_base_url + cast.profile_path}
-                alt=""
-                className="rounded-full h-21 md:h-21 aspect-square object-cover"
-              />
-              <p className="font-medium text-sm mt-3">{cast.name}</p>
-            </div>
-          ))}
+<p className="text-lg font-medium mt-20">Your Favorite Cast</p>
+<div className="overflow-x-auto no-scrollbar mt-8 pb-4">
+  <div className="flex gap-6 w-max px-4">
+    {show.movie.casts
+      .filter((cast) => cast.profile_path) 
+      .slice(0, 12) 
+      .map((cast, index) => (
+        <div
+          key={index}
+          className="flex flex-col items-center text-center min-w-[100px]"
+        >
+          <img
+            src={image_base_url + cast.profile_path}
+            alt={cast.name}
+            className="rounded-full h-24 w-24 object-cover bg-gray-800 border border-gray-700"
+          />
+          <p className="font-medium text-sm mt-3">{cast.name}</p>
         </div>
-      </div>
+      ))}
+  </div>
+</div>
 
       <DateSelect dateTime={show.dateTime} id={id} />
 
