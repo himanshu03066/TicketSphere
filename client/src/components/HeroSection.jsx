@@ -9,8 +9,7 @@ const HeroSection = () => {
 
   return (
     
-    <div
-      style={{
+    <div style={{
         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${bg})`,
         backgroundSize: "cover",
         backgroundPosition: "center top",
