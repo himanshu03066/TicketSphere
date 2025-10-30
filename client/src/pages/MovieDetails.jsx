@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import BlurCircle from "../components/BlurCircle";
 import { Heart, PlayCircleIcon, StarIcon } from "lucide-react";
 import timeFormat from "../lib/timeFormat";
@@ -10,6 +10,7 @@ import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 
 const MovieDetails = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
   const [show, setShow] = useState(null);
@@ -22,6 +23,12 @@ const MovieDetails = () => {
     fetchFavoriteMovies,
     image_base_url,
   } = useAppContext();
+
+
+   useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, [location.pathname]);
+
 
   const getShow = async () => {
     try {
