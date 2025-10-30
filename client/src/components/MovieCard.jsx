@@ -25,9 +25,9 @@ const{image_base_url}=useAppContext();
       </p>
 
     <div className='flex items-center justify-between mt-4 pb-3'>
-    <button onClick={() => {navigate(`/movies/${movie.id}`); scrollTo(0, 0)}}
+    <a onClick={() => {navigate(`/movies/${movie._id}`); scrollTo(0, 0)}}
         className='px-4 py-2 text-xs bg-primary hover:bg-primary-dull transition
-        rounded-full font-medium cursor-pointer'>Buy Tickets</button>
+        rounded-full font-medium cursor-pointer'>Buy Tickets</a>
 
     <p className='flex items-center gap-1 text-sm text-gray-400 mt-1 pr-1'>
         <StarIcon className="w-4 h-4 text-primary fill-primary"/>
