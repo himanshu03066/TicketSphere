@@ -16,8 +16,7 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat",
         filter: "brightness(1.49) contrast(0.9) saturate(1.7)",
       }}
-      className="relative flex flex-col items-start justify-center gap-4 px-5 sm:px-8 md:px-16 lg:px-36 min-h-[100dvh] text-center sm:text-left overflow-hidden"
-    >
+      className="relative flex flex-col items-start justify-center gap-4 px-5 sm:px-8 md:px-16 lg:px-36 min-h-[100dvh] text-center sm:text-left overflow-hidden">
 
      
       <div className="absolute inset-0 bg-black/50"></div>

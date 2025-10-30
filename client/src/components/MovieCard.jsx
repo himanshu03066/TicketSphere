@@ -12,7 +12,7 @@ const{image_base_url}=useAppContext();
       className="flex flex-col justify-between p-3 bg-gray-800 rounded-2xl
              hover:-translate-y-1 transition duration-300 w-66"
     >
-      <img onClick={() => {navigate(`/movies/${movie._id}`); scrollTo(0,0); }}
+      <img onClick={() => {navigate(`/movies/${movie._id}`);  setTimeout(() => window.scrollTo(0, 0), 100); }}
         src={image_base_url+movie.backdrop_path}
         alt=""
         className="rounded-lg h-52 w-full
@@ -25,7 +25,7 @@ const{image_base_url}=useAppContext();
       </p>
 
     <div className='flex items-center justify-between mt-4 pb-3'>
-    <a onClick={() => {navigate(`/movies/${movie._id}`); scrollTo(0, 0)}}
+    <a onClick={() => {navigate(`/movies/${movie._id}`);  setTimeout(() => window.scrollTo(0, 0), 100);}}
         className='px-4 py-2 text-xs bg-primary hover:bg-primary-dull transition
         rounded-full font-medium cursor-pointer'>Buy Tickets</a>
 

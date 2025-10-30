@@ -19,12 +19,14 @@ import { SignIn } from "@clerk/clerk-react";
 import Loading from "./components/Loading";
 import Theatres from "./pages/Theatres";
 import Releases from "./pages/Releases";
+
 const App = () => {
   const isAdmin= useLocation().pathname.startsWith('/admin');
   const{user}=useAppContext();
   return (
     <>
 <Toaster/>
+
     { !isAdmin && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
