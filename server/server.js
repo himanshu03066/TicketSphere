@@ -37,3 +37,4 @@ app.use('/api/user',userRouter);
 app.listen(port,()=>{
     console.log(`server is listing at https://localhost:${port}`)
 })
+

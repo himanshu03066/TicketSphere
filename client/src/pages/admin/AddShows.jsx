@@ -26,6 +26,7 @@ const AddShows = () => {
     headers: { Authorization: `Bearer ${await getToken()}` }
   })
   if(data.success) {
+   
     setNowPlayingMovies(data.movies)
   }
 } catch (error) {

@@ -43,6 +43,8 @@ const navigate=useNavigate();
 const fetchShows = async () => {
   try {
     const { data } = await axios.get('/api/show/all')
+       console.log("SHOW API RESPONSE:", data); // 👈 ADD THIS
+
     if (data.success) {
       setShows(data.shows)
     } else {

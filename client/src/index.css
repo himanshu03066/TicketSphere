@@ -1,4 +1,4 @@
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
@@ -29,6 +29,112 @@ input::-webkit-inner-spin-button {
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-in-out;
+}  
+
+
+ */
+
+
+
+
+
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+
+ @theme{
+  --color-primary:#D946EF;
+  --color-primary-dull:#A21CAF;
+}
+
+
+*{
+   font-family: "Outfit", sans-serif;
+   scrollbar-width: thin;
+   scrollbar-color: #787777 #1e1e1e;
+}
+body{
+  color: white;
+  background-color: #0A0118;
+}
+
+
+
+.no-scrollbar{
+  scrollbar-width: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-in-out;
+} 
+ 
+
+ */
+
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --color-primary:#D946EF;
+  --color-primary-dull:#A21CAF;
+}
+
+* {
+  font-family: "Outfit", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #787777 #1e1e1e;
+}
+
+body {
+  color: white;
+
+  /* 🔥 Premium Cinematic Background */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(217, 70, 239, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(162, 28, 175, 0.12), transparent 55%),
+    linear-gradient(135deg, #0A0118 0%, #0E001C 50%, #080014 100%);
+  
+  background-attachment: fixed; /* Smooth feel */
+}
+
+/* Smooth scrollbars */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Fade animation */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
