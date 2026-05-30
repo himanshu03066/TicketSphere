@@ -18,7 +18,10 @@ const Navbar = () => {
     px-6 md:px-16 lg:px-36 py-5"
     >
       <Link to="/" className="max-md:flex-1"    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        <img src={assets.logo} alt=""  className="w-42 h-auto max-w-[180px] md:w-48 md:max-w-[200px] lg:w-52 mt-2.5" />
+        <span className="text-3xl md:text-4xl font-black tracking-tight mt-2.5 inline-block">
+  <span className="text-primary">Ticket</span>
+  <span className="text-white">Sphere</span>
+</span>
       </Link>
       <div className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium
 max-md:text-lg z-50 flex flex-col md:flex-row  items-center max-md:justify-center
