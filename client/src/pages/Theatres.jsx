@@ -5,7 +5,7 @@ const Theatres = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center h-[80vh] bg-black text-center text-gray-300 space-y-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-center text-gray-300 space-y-8">
       <div className="text-4xl font-semibold flex items-center gap-2 animate-pulse">
         🎭 Theatres Section Coming Soon...
       </div>
