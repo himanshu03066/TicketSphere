@@ -23,8 +23,6 @@ export const getNowPlayingMovies = async (req, res) => {
 
 
 
-
-
 // api to get upcoming movies from tmdb
 export const getUpcomingMovies = async (req, res) => {
   try {
@@ -38,7 +36,11 @@ export const getUpcomingMovies = async (req, res) => {
       }
     );
 
-    const movies = data.results;
+    const today = new Date().toISOString().split("T")[0];
+
+    const movies = data.results.filter(
+      (movie) => movie.release_date && movie.release_date > today
+    );
 
     res.json({
       success: true,
@@ -54,6 +56,40 @@ export const getUpcomingMovies = async (req, res) => {
     });
   }
 };
+
+
+
+
+
+// api to get trending movies from tmdb
+export const getTrendingMovies = async (req, res) => {
+  try {
+    const { data } = await axios.get(
+      "https://api.themoviedb.org/3/trending/movie/week",
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+        },
+        timeout: 60000,
+      }
+    );
+
+    res.json({
+      success: true,
+      movies: data.results,
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
 //api to add a new show to the database
 export const addShow = async (req, res) => {
   try {

@@ -1,24 +1,22 @@
-
-
 import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import BlurCircle from "../components/BlurCircle";
 import { useAppContext } from "../context/AppContext";
 
-const Releases = () => {
+const Trending = () => {
   const { axios } = useAppContext();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getUpcomingMovies = async () => {
+    const getTrendingMovies = async () => {
       try {
-        const { data } = await axios.get("/api/show/upcoming");
-          console.log("UPCOMING API RESPONSE:", data);
+        const { data } = await axios.get("/api/show/trending");
+        console.log("TRENDING API RESPONSE:", data);
 
-      if (data.success) {
-  setMovies(data.movies || []);
-}
+        if (data.success) {
+          setMovies(data.movies || []);
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -26,25 +24,25 @@ const Releases = () => {
       }
     };
 
-    getUpcomingMovies();
+    getTrendingMovies();
   }, []);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p className="text-gray-400">Loading releases...</p>
+        <p className="text-gray-400">Loading trending movies...</p>
       </div>
     );
   }
 
   return movies.length > 0 ? (
     <div className="relative my-40 mb-60 px-6 md:px-16 lg:px-40 xl:px-44 overflow-hidden min-h-[80vh]">
-      
+
       <BlurCircle top="150px" left="0" />
       <BlurCircle bottom="50px" right="50px" />
 
       <h1 className="text-lg font-medium my-4">
-        Upcoming Releases
+        Trending Movies
       </h1>
 
       <div className="flex flex-wrap max-sm:justify-center gap-8 mt-8">
@@ -52,18 +50,19 @@ const Releases = () => {
           <MovieCard
             movie={movie}
             key={movie.id}
-            upcoming={true}
+            trending={true}
           />
         ))}
       </div>
+
     </div>
   ) : (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl font-bold text-center">
-        No upcoming releases
+        No trending movies
       </h1>
     </div>
   );
 };
 
-export default Releases;
+export default Trending;

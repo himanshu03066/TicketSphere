@@ -33,7 +33,7 @@ ${isOpen? 'max-md:w-full' :'max-md:w-0'}`} >
 
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/">Home </Link>
         <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/movies">Movies </Link>
-     <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)}} to="/theatres">Theatres</Link>
+     <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)}} to="/trending">Trending</Link>
 <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)}} to="/releases">Releases</Link>
 
        { favoriteMovies.length > 0 && <Link onClick={()=>{scrollTo(0,0);setIsOpen(false)   }} to="/favourite">Favourites </Link>}
