@@ -14,7 +14,7 @@ const Releases = () => {
     const getUpcomingMovies = async () => {
       try {
         const { data } = await axios.get("/api/show/upcoming");
-          console.log("UPCOMING API RESPONSE:", data);
+         
 
       if (data.success) {
   setMovies(data.movies || []);
