@@ -17,12 +17,9 @@ const Navbar = () => {
       className="fixed top-0 left-0 z-50 w-full flex items-center justify-between
     px-6 md:px-16 lg:px-36 py-5"
     >
-      <Link to="/" className="max-md:flex-1"    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        <span className="text-3xl md:text-4xl font-black tracking-tight mt-2.5 inline-block">
-  <span className="text-primary">Ticket</span>
-  <span className="text-white">Sphere</span>
-</span>
-      </Link>
+  <Link to="/" className="max-md:flex-1" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <img src={assets.logo} alt="TicketSphere" className="w-36 sm:w-44 md:w-56 lg:w-64 h-auto" />
+</Link>
       <div className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium
 max-md:text-lg z-50 flex flex-col md:flex-row  items-center max-md:justify-center
 gap-8 min-md:px-8 py-3 max-md:h-screen min-md:rounded-full backdrop-blur bg-black/70
